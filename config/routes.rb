@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get :my_cars
     end
   end
-  resources :bookings, only: [:show] do
+  resources :bookings, only: [:index] do
     member do
       get :confirm
     end
