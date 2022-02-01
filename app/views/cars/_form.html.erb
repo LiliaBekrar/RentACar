@@ -1,0 +1,17 @@
+<%= simple_form_for(@car) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.file_field :photo %>
+    <%= f.input :brand %>
+    <%= f.input :model %>
+    <%= f.input :year_of_production, collection: 1986..2022 %>
+    <%= f.input :adress %>
+    <%= f.input :price_per_day, type: 'number' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

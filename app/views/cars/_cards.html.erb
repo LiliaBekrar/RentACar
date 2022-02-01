@@ -1,0 +1,20 @@
+<% if @cars.nil? %>
+<div class="container">No car available</div>
+<% else %>
+  <div class="cards">
+    <% @cars.each do |card| %>
+      <div class="card-default">
+        <%= link_to car do %>
+          <%= image_tag car.photo %>
+        <% end %>
+        <div class="card-default-infos">
+          <div>
+            <h2><%= car.brand %> <%= car.model%></h2>
+            <p><%= car.address %></p>
+          </div>
+          <h2 class="card-default-pricing"><%= car.price_per_day %> €</h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
