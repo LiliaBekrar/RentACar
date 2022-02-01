@@ -2,7 +2,7 @@
 <div class="container">No car available</div>
 <% else %>
   <div class="cards">
-    <% @cars.each do |card| %>
+    <% @cars.each do |car| %>
       <div class="card-default">
         <%= link_to car do %>
           <%= image_tag car.photo %>
