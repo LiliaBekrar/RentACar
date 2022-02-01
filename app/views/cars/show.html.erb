@@ -1,0 +1,13 @@
+<div class="card-default">
+  <%= image_tag @car.photo %>
+  <div class="card-default-infos">
+    <div>
+      <h2><%= @car.brand %> <%= @car.model%></h2>
+      <p><%= @car.year_of_production %></p>
+      <p><%= @car.address %></p>
+    </div>
+    <h2 class="card-default-pricing"><%= @car.price_per_day %> €</h2>
+  </div>
+</div>
+<%= link_to 'See all car', cars_path %>
+<%# <%= render 'bookings/form'%>
