@@ -1,4 +1,5 @@
 import flatpickr from "flatpickr";
+import rangePlugin from 'flatpickr/dist/plugins/rangePlugin'
 
 const initFlatpickr = () => {
   // First we define two variables that are going to grab our inputs field. You can check the ids of the inputs with the Chrome inspector.
@@ -11,9 +12,11 @@ const initFlatpickr = () => {
     endDateInput.disabled = true
 
     flatpickr(startDateInput, {
+      mode: "range",
       minDate: "today",
       disable: unavailableDates,
       dateFormat: "d-m-Y",
+      plugins: [new rangePlugin({ input: endDateInput })]
     });
 
     console.log('Hello from flatpickr')
