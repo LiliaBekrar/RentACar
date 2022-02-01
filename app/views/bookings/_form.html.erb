@@ -1,0 +1,19 @@
+<div class="container">
+  <div id='car-booking-dates' data-unavailable="<%= @car.unavailable_dates.to_json %>">
+    <% if current_user.id != @car.user_id  %>
+      <%= simple_form_for([@car, @booking]) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-inputs">
+          <%= f.input :starts_at, as: :string, type: :text %>
+          <%= f.input :ends_at, as: :string, type: :text  %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<% if @my_bookings == [] %>
+<div class="container">
+<h2>No one has rented your cars yet</h2>
+</div>
+<% else %>
+<div class="container">
+  <h2><%= @my_bookings.length %> person want to rent your cars</h2>
+  <div class="cards">
+    <% @my_bookings.each do |booking| %>
+      <div class="card-default">
+        <%= link_to booking.car do %>
+          <%= image_tag booking.car.photo %>
+        <% end %>
+        <div class="card-default-infos">
+          <div>
+            <h2> I book a <%= booking.car.brand %> <%= booking.car.model%></h2>
+            <p> From <%= booking.starts_at %> to <%= booking.ends_at %></p>
+
+            <% if booking.accepted %>
+            <p> You already accept this booking </p>
+            <% else %>
+            <%= link_to "Accept",confirm_booking_path(booking), class:"btn btn-flat" %>
+            <% end %>
+
+          </div>
+          <h2 class="card-default-pricing"><%= booking.car.price_per_day %> € per day</h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

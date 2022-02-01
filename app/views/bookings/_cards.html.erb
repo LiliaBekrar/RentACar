@@ -1,0 +1,33 @@
+<% if @bookings.nil? %>
+<div class="container container-btn">
+<h2>You haven’t booked a car yet</h2>
+<%= link_to "See all cars", cars_path, class: 'btn btn-flat' %>
+</div>
+<% else %>
+<div class="container">
+  <div class="cards">
+    <% @bookings.each do |booking| %>
+      <div class="card-default">
+        <%= link_to booking.car do %>
+          <%= image_tag booking.car.photo %>
+        <% end %>
+        <div class="card-default-infos">
+          <div>
+            <h2> I book a <%= booking.car.brand %> <%= booking.car.model%></h2>
+
+            <% if booking.accepted %>
+            <p class="btn btn-flat"> Accepted </p>
+            <% else %>
+            <p class="btn btn-danger"> Waiting</p>
+            <% end %>
+
+            <p> From <%= booking.starts_at %> to <%= booking.ends_at %></p>
+            <p><%= booking.car.address %></p>
+          </div>
+          <h2 class="card-default-pricing"><%= booking.car.price_per_day %> € per day</h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

@@ -13,4 +13,10 @@ class Car < ApplicationRecord
       self.photo.attach(io: File.open(Rails.root.join("app", "assets", "images", "voiture_default.jpg")), filename: 'voiture_default.jpg' , content_type: "image/jpg")
     end
   end
+
+  def unavailable_dates
+    bookings.pluck(:starts_at, :ends_at).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end

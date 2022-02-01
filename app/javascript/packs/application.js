@@ -20,15 +20,17 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initUpdateNavbarOnScroll } from '../components/init_update_navbar_on_scroll';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initFlatpickr } from "../plugins/init_flatpickr";
+
 
 document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   initAutocomplete();
+  initFlatpickr();
   // Call your functions here, e.g:
   // initSelect2();
 });
