@@ -1,4 +1,7 @@
+
+<div class="container container-btn">
+  <h2><%=@cars.nil? ? "You haven't any car yet" : "You have #{@cars.length} cars"  %></h2>
+  <%= link_to 'Add a new car', new_car_path, class:"btn btn-flat" %></div>
 <div class="container">
-<%= link_to 'Add a new car', new_car_path %>
-<%= render 'cards'%>
+  <%= render 'cards'%>
 </div>

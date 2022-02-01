@@ -1,13 +1,20 @@
-<div class="card-default">
-  <%= image_tag @car.photo %>
-  <div class="card-default-infos">
-    <div>
-      <h2><%= @car.brand %> <%= @car.model%></h2>
-      <p><%= @car.year_of_production %></p>
-      <p><%= @car.address %></p>
-    </div>
-    <h2 class="card-default-pricing"><%= @car.price_per_day %> €</h2>
-  </div>
+<div class="banner banner-not-home" style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(<%= image_path @car.photo.filename %>);">
 </div>
-<%= link_to 'See all car', cars_path %>
-<%# <%= render 'bookings/form'%>
+<div class="container voiture-show-container">
+  <div class="card-default">
+    <%= image_tag @car.photo %>
+    <div class="card-default-infos">
+      <div>
+        <h2><%= @car.brand %> <%= @car.model%></h2>
+        <p><%= @car.year_of_production %></p>
+        <p><%= @car.address %></p>
+      </div>
+      <h2 class="card-default-pricing"><%= @car.price_per_day %> €</h2>
+    </div>
+  </div>
+<div class="container container-btn">
+<h2><%=current_user.id != @car.user_id ? "Book this car" : "Sorry it's your car"  %></h2>
+<%= link_to 'See all other car', cars_path, class: "btn btn-flat" %>
+</div>
+<%= render 'bookings/form'%>
+</div>
