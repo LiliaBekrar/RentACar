@@ -4,7 +4,7 @@
 </div>
 <% else %>
 <div class="container">
-  <h2><%= @my_bookings.length %> person want to rent your cars</h2>
+  <h2><%=pluralize(@my_bookings.length, 'person') %> want to rent your cars</h2>
   <div class="cards">
     <% @my_bookings.each do |booking| %>
       <div class="card-default">
@@ -13,8 +13,8 @@
         <% end %>
         <div class="card-default-infos">
           <div>
-            <h2> I book a <%= booking.car.brand %> <%= booking.car.model%></h2>
-            <p> From <%= booking.starts_at %> to <%= booking.ends_at %></p>
+            <h2> For your <%= booking.car.brand %> <%= booking.car.model%></h2>
+            <p> From <%= booking.starts_at.to_time.strftime('%b %e %Y') %> to <%= booking.ends_at.to_time.strftime('%b %e %Y') %></p>
 
             <% if booking.accepted %>
             <p> You already accept this booking </p>

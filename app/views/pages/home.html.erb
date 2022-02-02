@@ -11,9 +11,9 @@
   <h2> No car yet to rent.. </h2>
   <%= link_to 'Add your car', new_car_path, class: 'btn btn-flat' %>
 <% else %>
-  <h2> <%= pluralize(@cars.length, 'car') %> waiting to be rented </h2>
+  <h2> <%= pluralize(Car.all.length, 'car') %> waiting to be rented </h2>
   <%= link_to 'See them all', cars_path, class: 'btn btn-flat' %>
 <% end %>
 </div>
 
-<%= render 'cars/cards', limit: 3 %>
+<%= render 'cars/cards' %>
