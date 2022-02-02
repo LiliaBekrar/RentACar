@@ -1,7 +1,7 @@
 
 <div class="container container-btn">
-  <h2><%=@cars.nil? ? "You haven't any car yet" : "You have #{@cars.length} cars"  %></h2>
-  <%= link_to 'Add a new car', new_car_path, class:"btn btn-flat" %></div>
+  <h2><%=@cars.length.zero? ? "You haven't any car yet" : "You have #{pluralize(@cars.length, 'car')}"  %></h2>
+  <%= link_to 'Add a new car', new_car_path, class: 'btn btn-flat' %></div>
 <div class="container">
   <%= render 'cards'%>
 </div>

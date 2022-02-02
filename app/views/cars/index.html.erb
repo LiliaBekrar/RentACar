@@ -1,1 +1,14 @@
-<%= render 'cards'%>
+  <div class="container">
+  <%= render 'shared/searchbar'%>
+  </div>
+  <% if params[:search].present? %>
+    <div class="container">
+    <% if @cars == [] %>
+      <h2>Sorry no car match your search..</h2>
+      <% @cars = Car.all %>
+    <% else %>
+      <h2><%= pluralize(@cars.length, 'car') %> match your search</h2>
+    <% end %>
+    </div>
+  <% end %>
+  <%= render 'cards'%>
