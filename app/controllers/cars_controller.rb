@@ -3,7 +3,11 @@ class CarsController < ApplicationController
   before_action :set_user, only: %i[new create my_cars]
 
   def index
-    @cars = Car.all
+    if params[:search].present?
+      @cars = search_method(params[:search])
+    else
+      @cars = Car.all
+    end
   end
 
   def my_cars
@@ -50,9 +54,14 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
   end
 
-    # Only allow a list of trusted parameters through.
+  # Only allow a list of trusted parameters through.
   def car_params
     params.require(:car).permit(:user_id, :brand, :model, :year_of_production, :address, :price_per_day, :photo)
+  end
+
+  def search_method(params)
+    sql_query = "brand ILIKE :brand AND model ILIKE :model AND address ILIKE :address"
+    @cars = Car.where(sql_query, brand: "%#{params[:brand]}%", model: "%#{params[:model]}%", address: "%#{params[:address]}%")
   end
 
   def set_user

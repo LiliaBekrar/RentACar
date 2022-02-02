@@ -11,8 +11,12 @@
 }
 
 .voiture-show-container {
-  margin-top: -35vh;
-  max-width: 90vw;
+  margin-top: -40vh;
+  max-width: 85vw;
+  margin-bottom: 2vh;
+  img {
+    min-height: 20vw;
+  }
 }
 
 .banner h1 {

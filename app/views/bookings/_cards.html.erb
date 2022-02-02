@@ -1,10 +1,11 @@
-<% if @bookings.nil? %>
+<% if @bookings.nil? || @bookings == [] %>
 <div class="container container-btn">
 <h2>You haven’t booked a car yet</h2>
 <%= link_to "See all cars", cars_path, class: 'btn btn-flat' %>
 </div>
 <% else %>
 <div class="container">
+<h2>Your bookings</h2>
   <div class="cards">
     <% @bookings.each do |booking| %>
       <div class="card-default">
@@ -21,7 +22,7 @@
             <p class="btn btn-danger"> Waiting</p>
             <% end %>
 
-            <p> From <%= booking.starts_at %> to <%= booking.ends_at %></p>
+            <p> From <%= booking.starts_at.to_time.strftime('%b %e %Y') %> to <%= booking.ends_at.to_time.strftime('%b %e %Y') %></p>
             <p><%= booking.car.address %></p>
           </div>
           <h2 class="card-default-pricing"><%= booking.car.price_per_day %> € per day</h2>

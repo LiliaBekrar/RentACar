@@ -3,6 +3,14 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+    <div class="thumb">
+    <p> Actual photo </p>
+    <% if @car.photo.attached? %>
+    <%= image_tag @car.photo, class: "thumbnail" %>
+    <% else %>
+    <%= image_tag "voiture_default.jpg", class: "thumbnail" %>
+    <% end %>
+    </div>
     <%= f.file_field :photo %>
     <%= f.input :brand %>
     <%= f.input :model %>

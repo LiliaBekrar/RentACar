@@ -3,21 +3,17 @@
     <h1>
       <span data-controller="typed-js"></span>
     </h1>
-    <%= simple_form_for :search, url: cars_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
-        <input class="form-control string required search_brand" type="text" name="search[brand]" id="search_brand" placeholder="Brand" />
-        <input class="form-control string required search_model" type="text" name="search[model]" id="search_model" placeholder="Model"/>
-        <input class="form-control string required search_city" type="text" name="search[city]" id="search_city" placeholder="City" />
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    <% end %>
+    <%= render 'shared/searchbar'%>
   </div>
 </div>
 <div class="container container-btn">
-<h2> <%= @cars.length %> cars waiting to be rented </h2>
-<%= link_to 'See them all', cars_path, class: 'btn btn-flat' %>
+<% if @cars.length.zero? %>
+  <h2> No car yet to rent.. </h2>
+  <%= link_to 'Add your car', new_car_path, class: 'btn btn-flat' %>
+<% else %>
+  <h2> <%= pluralize(Car.all.length, 'car') %> waiting to be rented </h2>
+  <%= link_to 'See them all', cars_path, class: 'btn btn-flat' %>
+<% end %>
 </div>
 
-<%= render 'cars/cards', limit: 3 %>
+<%= render 'cars/cards' %>
