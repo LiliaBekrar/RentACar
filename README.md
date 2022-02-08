@@ -22,7 +22,7 @@ Vous pourrez alors réexécuter les commandes habituelles vous permettant de lan
 
 Effectuez les modifications du code nécessaires à l'obtention du schema de données suivant :
 
-<img src="https://github.com/lewagon-assess/rails-rent-cars-challenge/blob/master/db_schema.png?raw=true" alt="DB schema">
+<img src="https://github.com/LiliaBekrar/RentACar/blob/master/db_schema.png" alt="DB schema">
 
 Une voiture n'est pas valide :
 
