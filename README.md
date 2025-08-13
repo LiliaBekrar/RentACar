@@ -65,3 +65,18 @@ Pour avoir une interface soignée, nous vous conseillons d'utiliser :
 
 - <a href="https://getbootstrap.com/docs/4.6/getting-started/introduction/" target="_blank">Bootstrap</a> (déjà installé)
 - <a href="https://uikit.lewagon.com/" target="_blank">L'UI Kit du Wagon</a>
+
+## 🚀 Résultat
+
+Voici le rendu final de mon application **RentACar** 🚗  
+Elle permet de réserver facilement des voitures entre particuliers, avec authentification, gestion des réservations et affichage des disponibilités.
+
+**Technologies utilisées** :
+- Ruby on Rails
+- PostgreSQL
+- Bootstrap
+- Flatpickr
+- Devise
+
+### 🎥 Démonstration
+![Démo](demo.gif)  
